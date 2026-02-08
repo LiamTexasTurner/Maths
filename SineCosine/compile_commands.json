@@ -1,0 +1,24 @@
+[
+  {
+    "directory": "C:/YOUR_PROJECT_ROOT",
+    "file": "C:/YOUR_PROJECT_ROOT/src/main.cpp",
+    "arguments": [
+      "cl",
+      "/nologo",
+      "/EHsc",
+      "/Zi",
+      "/MDd",
+      "/std:c++17",
+
+      "/IC:/vcpkg/installed/x64-windows/include",
+      "/IC:/YOUR_PROJECT_ROOT/Libaries/Include",
+      "/IC:/raylib/raygui/src",
+      "/IC:/YOUR_PROJECT_ROOT/src",
+
+      "/FoC:/YOUR_PROJECT_ROOT/build/main.obj",
+      "/FdC:/YOUR_PROJECT_ROOT/build/app.pdb",
+
+      "C:/YOUR_PROJECT_ROOT/src/main.cpp"
+    ]
+  }
+]
