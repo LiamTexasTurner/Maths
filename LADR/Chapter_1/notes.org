@@ -1,0 +1,138 @@
+http://staff.ustc.edu.cn/~ynyang/2022/books/LA1.pdf
+* Comples Numbers
+
+  - A complex number is an ordered pair (a,b) where a,b ∈ R,
+    a is the real part and b is the imaginary part
+
+  - The Set of All Complex Number is denoted by C
+    C = {a + bi : a,b ∈ R}    
+   (: → “such that” or “where” )
+   so C means the set of all complex numbers expressed  as *a + bi* where *a,b ∈ R*
+   
+  - i is defined as the complex number 0 + 1i
+    The symbol i only appears when we write the number, not when we store it.
+    so
+    {0.0, 1.0}  = 0 + 1i
+    {3.5, -2.0} = 3.5 - 2i
+
+     
+** adition
+    (a + bi) + (c + di) = (a + c) + (b + d) i
+    
+** Mult    
+    (a + bi)(c + di) = (ac - bd) + (ad + bc)i
+
+    
+    verify i^2 = -1
+    file:c:/scratch/Math/LADR_1/main.c::17
+    because i is defined as 0 + 1i we store it as the complex number (0,1)
+    0 the real part, 1 the imaginary part
+    then when we compute i * i (or i^2)
+    following the rules of complex number multiplication we get -1
+    so i^2 = the real number -1
+
+    take complex number (2,6)
+    expands to this
+    real number a = 2 = (2,0)
+    real number b = 6 = (6,0)
+    i = (0,1)
+    (2,0) + 6(0,1)
+
+** complex conjugate
+
+    z=a+bi
+
+    then the conjugate is
+    
+    z‾=a−bi
+    z
+    =a−bi
+    What it implies
+    - Same real part
+    - Opposite imaginary part
+    - Mirror image across the real axis
+    
+
+    
+
+
+
+    https://github.com/jubnoske08/linear_algebra?tab=readme-ov-file 
+*** Exercises 1.A
+ Suppose a and b are real numbers, not both 0. find real numbers c and d such that
+
+ \[
+ \frac{1}{a+bi} = c +di
+\]
+
+ 
+**** notes
+What the problem is asking
+You are given a complex number in the denominator:
+
+
+s
+\[
+\frac{1}{a+bi} 
+\]
+
+and you’re asked to rewrite it in the standard complex form
+
+$$c+di$$
+
+where c and d are real numbers
+
+***** what intuition do we get from question
+1. complexnumbers behave like real numbers under division
+   
+2. Conjugates are the key tool for division
+   
+3. the magnitude $$a^2+b^2$$ controls the size of the reciporcal
+
+4. Complex numbers as points on the plane
+   - The solution depends on $$a2+b2$$
+
+   - That expression is exactly the distance formula from the origin
+
+   - The conjugate \(a - bi\) is exactly a mirror reflection
+
+   - Those two facts only make sense geometrically if:
+     \(a+bi \leftrightarrow (a,b)\)
+
+   - Complex numbers behave like vectors in the plane, and their arithmetic corresponds to geometric operations.
+
+***** fisrt ideas
+so this works because complex numbers themselves alsnmost represent a 2d
+plane so opperations on them is almost like doing 2d vector math?
+
+     
+
+
+
+
+  
+\[\begin{bmatrix}
+a & b & c & d \\
+e & f & g & h \\
+i & j & k & l \\
+m & n & o & p
+\end{bmatrix}\]
+
+
+
+
+    
+    
+    
+
+    
+    
+
+    
+  
+  
+
+
+
+
+  
