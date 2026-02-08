@@ -24,7 +24,6 @@ http://staff.ustc.edu.cn/~ynyang/2022/books/LA1.pdf
 
     
     verify i^2 = -1
-    file:c:/scratch/Math/LADR_1/main.c::17
     because i is defined as 0 + 1i we store it as the complex number (0,1)
     0 the real part, 1 the imaginary part
     then when we compute i * i (or i^2)

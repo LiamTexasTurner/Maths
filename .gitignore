@@ -2,3 +2,6 @@ ltximg/
 *.obj
 *.pdb
 *.ilk
+*mfput.log
+*glfw3.dll
+*raylib.dll
