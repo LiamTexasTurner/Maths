@@ -3,6 +3,7 @@
 #+LATEX_HEADER: \pgfplotsset{compat=1.18}
 
 * Polynomial
+
 ** Monomial
 A monomial is an expression with one term
 Examples:
@@ -43,3 +44,44 @@ x^2 + 3x + 2 \quad (\text{trinomial})
 \[
 5 \quad (\text{monomial, but still a polynomial})
 \]
+
+** Not polynomials
+- Variables only have whole-number exponents
+  (0, 1, 2, 3, …)
+- No variables in the denominator 
+- No variables inside roots
+- No variables as exponents
+  % Expressions that are NOT polynomials
+
+\[
+x^{-2}
+\]
+
+\[
+\frac{3}{x}
+\]
+
+\[
+x^{1/2}
+\]
+
+\[
+\sqrt{x}
+\]
+
+\[
+2^x
+\]
+
+\[
+\sqrt{x+1}
+\]
+
+\[
+\frac{1}{x+3}
+\]
+
+\[
+(x+2)^{-3}
+\]
+
