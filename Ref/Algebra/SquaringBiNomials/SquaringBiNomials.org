@@ -1,0 +1,64 @@
+#+STARTUP: latexpreview
+#+LATEX_HEADER: \usepackage{pgfplots}
+#+LATEX_HEADER: \pgfplotsset{compat=1.18}
+
+* SquaringBiNomials
+[[https://www.desmos.com/calculator/dss5zcc13e][graph]]
+Work through:
+
+\[
+(x + a)^2
+\]
+
+Step 1: Write as multiplication
+
+\[
+(x + a)^2 = (x + a)(x + a)
+\]
+
+Step 2: Distribute the first bracket
+
+\[
+(x + a)(x + a) = x(x + a) + a(x + a)
+\]
+
+Step 3: Multiply the \(x\) through
+
+\[
+x(x + a) = x \cdot x + x \cdot a
+\]
+\[
+= x^2 + ax
+\]
+
+Step 4: Multiply the \(a\) through
+
+\[
+a(x + a) = a \cdot x + a \cdot a
+\]
+\[
+= ax + a^2
+\]
+
+Step 5: Add the results
+
+\[
+(x^2 + ax) + (ax + a^2)
+\]
+
+Step 6: Combine like terms
+
+\[
+x^2 + ax + ax + a^2
+\]
+\[
+x^2 + 2ax + a^2
+\]
+
+Final answer:
+
+\[
+(x + a)^2 = x^2 + 2ax + a^2
+\]
+
+ 

@@ -1,0 +1,45 @@
+#+STARTUP: latexpreview
+#+LATEX_HEADER: \usepackage{pgfplots}
+#+LATEX_HEADER: \pgfplotsset{compat=1.18}
+
+* Polynomial
+** Monomial
+A monomial is an expression with one term
+Examples:
+\[
+5
+\]
+\[
+3x
+\]
+\[
+-2x^2
+\]
+\[
+7ab
+\]
+
+** Binomial
+is an expression with two terms
+Examples:
+\[
+x + 3
+\]
+\[
+2x^2 - 5x
+\]
+\[
+a + b
+\]
+
+** Polynomial
+is an expression with one two or more terms
+\[
+x^2 + 3x + 2 \quad (\text{trinomial})
+\]
+\[
+4x^3 - 2x + 7
+\]
+\[
+5 \quad (\text{monomial, but still a polynomial})
+\]
