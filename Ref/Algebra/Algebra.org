@@ -6,4 +6,4 @@
 ** [[file:SolvingLinearEquations/SolvingLinearEquations.org::*Solving linear Equations][Solving Linear Equations]]
 *** Clearing the fraction
 
-** [[file:Parabola/Parabola.org::*Parabola][Parbolas]]
+** [[file:Parabola/Parabola.org::*Parabola][Quadtratics]]
