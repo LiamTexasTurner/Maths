@@ -79,3 +79,66 @@ Check:
 x \times \frac{1}{x} = 1
 \]
 
+** Factoring
+Find the factors of \(10\).
+
+Start by testing whole numbers that divide into \(10\).
+
+\[
+10 \div 1 = 10
+\]
+So:
+\[
+1 \cdot 10 = 10
+\]
+
+Next, try \(2\).
+
+\[
+10 \div 2 = 5
+\]
+So:
+\[
+2 \cdot 5 = 10
+\]
+
+Next, try \(3\).
+
+\[
+10 \div 3 = 3.33\ldots
+\]
+This is not a whole number, so \(3\) is not a factor of \(10\).
+
+Next, try \(4\).
+
+\[
+10 \div 4 = 2.5
+\]
+This is not a whole number, so \(4\) is not a factor.
+
+Next, try \(5\).
+
+\[
+10 \div 5 = 2
+\]
+So:
+\[
+5 \cdot 2 = 10
+\]
+This is the same pair as \(2 \cdot 5\), so we stop.
+
+Now include the negative factors, since a negative times a negative is positive.
+
+\[
+(-1) \cdot (-10) = 10
+\]
+
+\[
+(-2) \cdot (-5) = 10
+\]
+
+So the full list of factors of \(10\) is:
+
+\[
+1,\;2,\;5,\;10,\;-1,\;-2,\;-5,\;-10
+\]

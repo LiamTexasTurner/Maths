@@ -71,7 +71,200 @@ f(x) = (x - 5)(5x + 2) //is a quadratic function, and its graph is a parabola.
 
  y = 3
  
- 
+** Forms
+There are three main forms of a quadratic expression or equation.
+All of them represent the same parabola, just written in different ways.
+
+A quadratic is any expression of the form:
+
+\[
+ax^2+bx+c
+\]
+
+where a ≠ 0.
+
+A special case occurs when a = 1:
+
+\[
+x^2+bx+c
+\]
+
+This is called a monic quadratic.
+Many basic factoring problems use this simpler form.
+
+-----------------------------------------------------
+1. Standard form
+This is the most common and general form.
+
+\[
+f(x)=ax^2+bx+c
+\]
+
+a controls the opening direction and vertical stretch.
+b affects the axis of symmetry and horizontal placement.
+c is the y-intercept, where the graph crosses the y-axis.
+
+Example:
+
+\[
+f(x)=2x^2+3x-5
+\]
+
+Special monic case of standard form:
+
+\[
+f(x)=x^2+7x+10
+\]
+
+Here the leading coefficient is 1.
+
+-----------------------------------------------------
+2. Factored form (intercept form)
+This form shows the roots (x-intercepts) directly.
+
+\[
+f(x)=a(x-r_1)(x-r_2)
+\]
+
+r_1 and r_2 are the solutions to the equation.
+The graph crosses the x-axis at these values.
+
+Example:
+
+\[
+f(x)=(x-2)(x+5)
+\]
+
+Roots:
+
+\[
+x=2,\quad x=-5
+\]
+
+If the leading coefficient is not 1:
+
+\[
+f(x)=2(x-2)(x+5)
+\]
+
+-----------------------------------------------------
+3. Vertex form
+This form shows the vertex of the parabola directly.
+
+\[
+f(x)=a(x-h)^2+k
+\]
+
+(h,k) is the vertex of the parabola.
+a controls the opening direction and vertical stretch.
+
+Example:
+
+\[
+f(x)=2(x-3)^2+1
+\]
+
+Vertex:
+
+\[
+(3,1)
+\]
+
+-----------------------------------------------------
+Summary
+
+General standard form:
+
+\[
+ax^2+bx+c
+\]
+
+Special monic standard form:
+
+\[
+x^2+bx+c
+\]
+
+Factored form:
+
+\[
+a(x-r_1)(x-r_2)
+\]
+
+Vertex form:
+
+\[
+a(x-h)^2+k
+\]
+
+
+** Factoring Quadratics
+Starting form
+
+A quadratic written like:
+
+\[
+x^2+ax+b=0
+\]
+
+is a monic quadratic in standard form.
+
+From this form, it is not obvious where the graph crosses the x-axis or what values of \(x\) make the expression equal to zero.
+
+-----------------------------------------------------
+After factoring
+
+If we rewrite the left side as:
+
+\[
+(x+m)(x+n)=0
+\]
+
+the equation is now in factored form.
+
+-----------------------------------------------------
+Why this is useful
+
+1. It makes solving the equation easy.
+
+If:
+
+\[
+(x+m)(x+n)=0
+\]
+
+then one of the factors must be zero.
+This follows from the zero product property.
+
+If:
+
+\[
+ab=0
+\]
+
+then:
+
+\[
+a=0 
+\]
+Or
+\[
+b=0 
+\]
+
+Apply this to the quadratic:
+
+\[
+x+m=0 \quad \text{or} \quad x+n=0
+\]
+
+Solve each equation:
+
+\[
+x=-m \quad \text{or} \quad x=-n
+\]
+
+So the solutions appear immediately.
 
  
 
