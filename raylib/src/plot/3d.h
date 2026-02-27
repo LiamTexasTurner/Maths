@@ -49,9 +49,10 @@ void orbit_camera_update(Camera& cam,
 
       vec3 eye = target + quat_mul_vec3(rotation_altitude, position);
 
+      cam.fovy += -GetMouseWheelMove();
+
       cam.target = Vector3{target.x, target.y, target.z};
       cam.position = Vector3{eye.x, eye.y, eye.z};
-      
 }
 
 
@@ -59,7 +60,11 @@ static void DrawPlaneFromEquation(float a, float b, float c, float d,
                                   Vector3 centerHint, float halfSize,
                                   Color fill, Color outline)
 {
+      //fliped because open gl y is up and desmos is z up and different y dir 
+      //Vector3 n = (Vector3){ a, c, -b };
+
       Vector3 n = (Vector3){ a, b, c };
+      
       float nLen = Vector3Length(n);
       if (nLen < 1e-6f) return; // invalid plane
 
@@ -117,10 +122,15 @@ void three_d_mode()
 
       SetTargetFPS(60);
 
-      float a = 5.0f, b = 0.0f, c = 3.0f, d = 3.0f;
+      //https://www.desmos.com/3d/t8yhgcr0k9
+      vector4 row1 = vector4{1.0f, 2.0f, 1.0f, 2.0f};
+      vector4 row2 = vector4{3.0f, 8.0f, 1.0f, 12.f};
+      vector4 row3 = vector4{0.0f, 4.0f, 1.0f, 2.0f};
 
-      vector4 row1 = vector4{5.0f, 0.0f, 3.0f, 3.0f};
-      vector4 row2 = vector4{1.0f, 8.0f, 1.0f, 8.f};
+      double mat[N][N + 1] = {{row1.x, row1.y, row1.z, row1.w}, {row2.x, row2.y, row2.z, row2.w}, {row3.x, row3.y, row3.z, row3.w}};
+
+
+            
       
    
       while (!WindowShouldClose())   
@@ -142,10 +152,11 @@ void three_d_mode()
             (IsMouseButtonDown(0)) ? GetMouseDelta().y : 0.0f,
             GetFrameTime() * 0.1f);
         
-
             ClearBackground(RAYWHITE);
 
             BeginMode3D(camera);
+
+            gaussianElimination(mat);
 
 	      DrawLine3D((Vector3){0,-8,0},(Vector3){0,8,0}, GREEN);
 	      DrawLine3D((Vector3){-8,0,0},(Vector3){8,0,0}, RED);
@@ -163,7 +174,7 @@ void three_d_mode()
             DrawPlaneFromEquation( row1.x,row1.y,row1.z,row1.w,
                                   (Vector3){0,0,0},      // center hint (where to draw the patch around)
                                   5.0f,                 // half-size of the quad
-                                  (Color){80,140,255,160},
+                                  (Color){0,0,199,160},
                                   DARKBLUE
                                   );
             
@@ -173,6 +184,14 @@ void three_d_mode()
                                   (Color){199,0,0,160},
                                   RED
                                   );
+
+            DrawPlaneFromEquation( row3.x,row3.y,row3.z,row3.w,
+                                  (Vector3){0,0,0},      // center hint (where to draw the patch around)
+                                  5.0f,                 // half-size of the quad
+                                  (Color){0,199,0,160},
+                                  GREEN
+                                  );
+
             
             EndMode3D();
 

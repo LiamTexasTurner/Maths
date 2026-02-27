@@ -3,11 +3,12 @@
 #include "rlgl.h"
 #include <stdio.h>
 #include <string.h>
-#include "common.h"
-#include "mat.h"
-#include "vec.h"
-#include "quat.h"
-#include "array.h"
+#include "orange/common.h"
+#include "orange/mat.h"
+#include "orange/vec.h"
+#include "orange/quat.h"
+#include "orange/array.h"
+#include "gauss_elim.h"
 #include "2d.h"
 #include "3d.h"
 
