@@ -1,4 +1,4 @@
-COL TRS
+iCOL TRS
 p =                 
 x                      
 y                 
@@ -65,3 +65,4 @@ mat from quat
 
 
 
+* gaussian elimination

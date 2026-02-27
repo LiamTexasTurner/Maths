@@ -82,18 +82,18 @@ void two_d_mode()
             ClearBackground(RAYWHITE);
 
             BeginMode3D(camera);
-	      for(int i = 0; i < 50; i ++)
-	      {
-	      	int GridPoint = i - 25;
-	      	DrawLine3D((Vector3){GridPoint, -100,0},(Vector3){GridPoint,100,0}, GRAY);
-	      	DrawLine3D((Vector3){-100, GridPoint,0},(Vector3){100,GridPoint,0}, GRAY);
-	      }
+	      // for(int i = 0; i < 50; i ++)
+	      // {
+	      // 	int GridPoint = i - 25;
+	      // 	DrawLine3D(Vector3{GridPoint, -100,0},Vector3{GridPoint,100,0}, GRAY);
+	      // 	DrawLine3D(Vector3{-100, GridPoint,0},Vector3{100,GridPoint,0}, GRAY);
+	      // }
 
-	      DrawLine3D((Vector3){0,-100,0},(Vector3){0,100,0}, GREEN);
-	      DrawLine3D((Vector3){-100,0,0},(Vector3){100,0,0}, RED);
+	      DrawLine3D(Vector3{0,-100,0},Vector3{0,100,0}, GREEN);
+	      DrawLine3D(Vector3{-100,0,0},Vector3{100,0,0}, RED);
             
-	      DrawCube((Vector3){0,0,0}, 0.1, 1000, 0.1, GREEN);
-	      DrawCube((Vector3){0,0,0}, 1000, 0.1, 0.1, RED);
+	      DrawCube(Vector3{0,0,0}, 0.1, 1000, 0.1, GREEN);
+	      DrawCube(Vector3{0,0,0}, 1000, 0.1, 0.1, RED);
 
             plot_line(plot_one, MAGENTA);
             
