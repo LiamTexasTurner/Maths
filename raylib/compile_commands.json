@@ -1,0 +1,19 @@
+[
+ {
+  "directory": "c:\\RaylibProjects\\speed_run",
+  "arguments": [
+   "gcc",
+   "main.c",
+   "-o",
+   "main.exe",
+   "-std=c99",
+   "-Ic:/raylib_src/src",
+   "-Lc:/raylib_src/src",
+   "-lraylib",
+   "-lopengl32",
+   "-lgdi32",
+   "-lwinmm"
+  ],
+  "file": "main.c"
+ }
+]

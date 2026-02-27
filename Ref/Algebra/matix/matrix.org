@@ -1,0 +1,67 @@
+COL TRS
+p =                 
+x                      
+y                 
+z                  
+1
+                  
+M =                  
+ax  bx  cx  tx                  
+ay  by  cy  ty                  
+az  bz  cz  tz
+0   0   0   1
+
+p' = M * p
+
+x' = ax*x + bx*y + cx*z + tx*1
+y' = ay*x + by*y + cy*z + ty*1
+z' = az*x + bz*y + cz*z + tz*1
+w' =  0*x +  0*y +  0*z +  1*1
+
+example
+| 1  0  0  10 |   | 5 |   | 15 |
+| 0  1  0   0 | × | 5 | = |  5 |
+| 0  0  1   5 |   | 5 |   | 10 |
+| 0  0  0   1 |   | 1 |   |  1 |
+
+mat from quat
+| 1 - 2(y² + z²)   2(xy - wz)       2(xz + wy)       0 |
+| 2(xy + wz)       1 - 2(x² + z²)   2(yz - wx)       0 |
+| 2(xz - wy)       2(yz + wx)       1 - 2(x² + y²)   0 |
+| 0                0                0                1 |
+
+
+
+
+
+
+ROW SRT
+p = [ x y z 1 ]
+
+M =
+ax  ay  az  0
+bx  by  bz  0
+cx  cy  cz  0
+tx  ty  tz  1
+
+p' = p * M
+
+x' = x*ax + y*bx + z*cx + 1*tx
+y' = x*ay + y*by + z*cy + 1*ty
+z' = x*az + y*bz + z*cz + 1*tz
+w' = x*0  + y*0  + z*0  + 1*1
+
+example
+| 5  5  5  1 | × | 1  0  0  0 | = | 15 5 10 1|
+                 | 0  1  0  0 |   
+                 | 0  0  1  0 |   
+                 |10  0  5  1 |
+
+mat from quat
+| 1 - 2(y² + z²)   2(xy + wz)       2(xz - wy)       0 |
+| 2(xy - wz)       1 - 2(x² + z²)   2(yz + wx)       0 |
+| 2(xz + wy)       2(yz - wx)       1 - 2(x² + y²)   0 |
+| 0                0                0                1 |
+
+
+
