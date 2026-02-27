@@ -1,5 +1,13 @@
 #include "raylib.h"
 
+struct vector4
+{
+      float x;
+      float y;
+      float z;
+      float w;
+};
+
 float orbit_camera_update_azimuth(const float azimuth,
                                   const float mouse_dx,
                                   const float dt)
@@ -15,7 +23,7 @@ float orbit_camera_update_altitude(const float altitude,
 }
 
 float otbit_camera_update_distance(const float distace,
-                                  const float dt)
+                                   const float dt)
 {
       return clampf(distace + 20.f * dt * -GetMouseWheelMove() * 20.0f, 0.1f, 100.0f);
 }
@@ -47,6 +55,50 @@ void orbit_camera_update(Camera& cam,
 }
 
 
+static void DrawPlaneFromEquation(float a, float b, float c, float d,
+                                  Vector3 centerHint, float halfSize,
+                                  Color fill, Color outline)
+{
+      Vector3 n = (Vector3){ a, b, c };
+      float nLen = Vector3Length(n);
+      if (nLen < 1e-6f) return; // invalid plane
+
+      Vector3 nHat = Vector3Scale(n, 1.0f/nLen);
+
+      // Choose a point p0 on the plane near centerHint.
+      // Project centerHint onto the plane along the normal:
+      // plane: n·p = d
+      // p0 = centerHint - nHat * ((n·centerHint - d)/|n|)
+      float dist = (Vector3DotProduct(n, centerHint) - d) / nLen;
+      Vector3 p0 = Vector3Subtract(centerHint, Vector3Scale(nHat, dist));
+
+      // Build an orthonormal basis (u, v) spanning the plane.
+      // Pick a helper vector not parallel to nHat.
+      Vector3 helper = (fabsf(nHat.y) < 0.99f) ? (Vector3){0,1,0} : (Vector3){1,0,0};
+
+      Vector3 u = Vector3Normalize(Vector3CrossProduct(nHat, helper));
+      Vector3 v = Vector3Normalize(Vector3CrossProduct(nHat, u));
+
+      float s = halfSize;
+
+      Vector3 p1 = Vector3Add(p0, Vector3Add(Vector3Scale(u, -s), Vector3Scale(v, -s)));
+      Vector3 p2 = Vector3Add(p0, Vector3Add(Vector3Scale(u, -s), Vector3Scale(v,  s)));
+      Vector3 p3 = Vector3Add(p0, Vector3Add(Vector3Scale(u,  s), Vector3Scale(v,  s)));
+      Vector3 p4 = Vector3Add(p0, Vector3Add(Vector3Scale(u,  s), Vector3Scale(v, -s)));
+
+      DrawTriangle3D(p1, p2, p3, fill);
+      DrawTriangle3D(p1, p3, p4, fill);
+      
+      DrawTriangle3D(p3, p2, p1, fill);
+      DrawTriangle3D(p4, p3, p1, fill);
+
+      DrawLine3D(p1, p2, outline);
+      DrawLine3D(p2, p3, outline);
+      DrawLine3D(p3, p4, outline);
+      DrawLine3D(p4, p1, outline);
+
+}
+
 void three_d_mode()
 {
 
@@ -54,17 +106,22 @@ void three_d_mode()
       camera.position = Vector3{ 15.0f, 3.0f, 5.0f };
       camera.target = Vector3{ 0.0f, 1.0f, 0.0f };
       camera.up = Vector3{ 0.0f, 1.0f, 0.0f };
-      camera.fovy = 45.0f;
-      camera.projection = CAMERA_PERSPECTIVE;
+      camera.fovy = 10.0f;
+      camera.projection = CAMERA_ORTHOGRAPHIC;
     
-      float camera_azimuth = -5.0f;
+      float camera_azimuth = -110.0f;
       float camera_altitude = 0.4f;
       float camera_distance = 30.0f;
     
-      
       Vector3 cube_position = { 0.0f, 0.0f, 0.0f };
 
       SetTargetFPS(60);
+
+      float a = 5.0f, b = 0.0f, c = 3.0f, d = 3.0f;
+
+      vector4 row1 = vector4{5.0f, 0.0f, 3.0f, 3.0f};
+      vector4 row2 = vector4{1.0f, 8.0f, 1.0f, 8.f};
+      
    
       while (!WindowShouldClose())   
       {
@@ -90,17 +147,32 @@ void three_d_mode()
 
             BeginMode3D(camera);
 
-	      DrawLine3D((Vector3){0,-100,0},(Vector3){0,100,0}, GREEN);
-	      DrawLine3D((Vector3){-100,0,0},(Vector3){100,0,0}, RED);
-            DrawLine3D((Vector3){0,0,100},(Vector3){0,0,-100}, BLUE);
+	      DrawLine3D((Vector3){0,-8,0},(Vector3){0,8,0}, GREEN);
+	      DrawLine3D((Vector3){-8,0,0},(Vector3){8,0,0}, RED);
+            DrawLine3D((Vector3){0,0,8},(Vector3){0,0,-8}, BLUE);
             
-	      DrawCube((Vector3){0,0,0}, 0.1, 1000, 0.1, GREEN);
-	      DrawCube((Vector3){0,0,0}, 1000, 0.1, 0.1, RED);
-            DrawCube((Vector3){0,0,0}, 0.1, 0.1, 1000, BLUE);
+	      DrawCube((Vector3){0,0,0}, 0.1, 8, 0.1, GREEN);
+	      DrawCube((Vector3){0,0,0}, 8, 0.1, 0.1, RED);
+            DrawCube((Vector3){0,0,0}, 0.1, 0.1, 8, BLUE);
 
-            DrawGrid(25.5f, 1.0f);
+            DrawGrid(8.5f, 1.0f);
             
-            DrawCubeWires((Vector3){0,0,0}, 24, 24, 24, GRAY);
+            DrawCubeWires((Vector3){0,0,0}, 8, 8, 8, GRAY);
+
+            
+            DrawPlaneFromEquation( row1.x,row1.y,row1.z,row1.w,
+                                  (Vector3){0,0,0},      // center hint (where to draw the patch around)
+                                  5.0f,                 // half-size of the quad
+                                  (Color){80,140,255,160},
+                                  DARKBLUE
+                                  );
+            
+            DrawPlaneFromEquation( row2.x,row2.y,row2.z,row2.w,
+                                  (Vector3){0,0,0},      // center hint (where to draw the patch around)
+                                  5.0f,                 // half-size of the quad
+                                  (Color){199,0,0,160},
+                                  RED
+                                  );
             
             EndMode3D();
 
