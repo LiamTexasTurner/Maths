@@ -8,9 +8,8 @@
 #include "orange/vec.h"
 #include "orange/quat.h"
 #include "orange/array.h"
-#include "gauss_elim.h"
-#include "2d.h"
-#include "3d.h"
+#include "parabola.h"
+#include "gauss.h"
 
 int main(int argc, char* argv[])
 {
@@ -22,13 +21,13 @@ int main(int argc, char* argv[])
 
       InitWindow(screen_width, screen_height, "raylib [core] example - 3d camera mode");
 
-      if(strcmp(input, "2d") == 0)
+      if(strcmp(input, "parabola") == 0)
       {
-            two_d_mode();
+            parabola();
       }
-      if(strcmp(input, "3d") == 0)
+      if(strcmp(input, "gauss") == 0)
       {
-            three_d_mode();
+            gauss();
       }
 
       CloseWindow();            

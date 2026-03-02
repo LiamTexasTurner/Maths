@@ -57,7 +57,7 @@ void PlotParabola(float (*func)(float))
 }
 
 
-void two_d_mode()
+void parabola()
 {
       Camera3D camera = { 0 };
       camera.position = (Vector3){ 0.0f, 0.0f, 50.0f }; 
